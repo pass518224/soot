@@ -114,6 +114,12 @@ public abstract class AbstractInstanceFieldRef implements InstanceFieldRef, Conv
         ((RefSwitch) sw).caseInstanceFieldRef(this);
     }
     
+	@Override
+    public boolean equivTo(Object o)
+    {
+        return equivTo(o);
+    }
+
     public boolean equivTo(Object o)
     {
         if (o instanceof AbstractInstanceFieldRef)
@@ -123,6 +129,12 @@ public abstract class AbstractInstanceFieldRef implements InstanceFieldRef, Conv
                 fr.baseBox.getValue().equivTo(baseBox.getValue());
         }
         return false;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return equivHashCode();
     }
 
     /** Returns a hash code for this object, consistent with structural equality. */

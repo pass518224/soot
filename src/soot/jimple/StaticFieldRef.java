@@ -90,12 +90,23 @@ public class StaticFieldRef implements FieldRef, ConvertToBaf
         ((RefSwitch) sw).caseStaticFieldRef(this);
     }
     
+    @Override
+    public boolean equals(Object o){
+        return equivTo(o);
+    }
+
     public boolean equivTo(Object o)
     {
         if (o instanceof StaticFieldRef)
             return ((StaticFieldRef)o).getField().equals(getField());
         
         return false;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return equivHashCode();
     }
 
     public int equivHashCode()
