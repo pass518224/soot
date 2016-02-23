@@ -115,7 +115,7 @@ public abstract class AbstractInstanceFieldRef implements InstanceFieldRef, Conv
     }
     
 	@Override
-    public boolean equivTo(Object o)
+    public boolean equals(Object o)
     {
         return equivTo(o);
     }
